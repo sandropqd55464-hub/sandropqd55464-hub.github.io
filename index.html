@@ -1,0 +1,781 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d18">
+
+  <title>AI-Assisted SaaS Developer | Sandro</title>
+
+  <meta name="description" content="Portfolio of an AI-Assisted SaaS Developer building web applications, digital products, business systems and AI-powered solutions.">
+
+  <meta property="og:title" content="AI-Assisted SaaS Developer">
+  <meta property="og:description" content="Building digital products with AI, modern development tools and a product-focused mindset.">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --bg: #080d18;
+      --surface: #101827;
+      --surface-light: #152238;
+      --text: #f3f6fc;
+      --muted: #a3afc4;
+      --accent: #63e6be;
+      --blue: #72a7ff;
+      --border: rgba(255,255,255,.10);
+      --radius: 18px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(ellipse at 80% 0%, rgba(65,105,225,.13), transparent 38%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8,13,24,.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: -.5px;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 11px 19px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-weight: 700;
+      font-size: .92rem;
+      transition: transform .2s, border-color .2s, background .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .button-primary {
+      color: #06150f;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .button-primary:hover {
+      background: #83f3d0;
+    }
+
+    .hero {
+      padding: 112px 0 88px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 12px;
+      border: 1px solid rgba(99,230,190,.25);
+      border-radius: 100px;
+      color: var(--accent);
+      background: rgba(99,230,190,.06);
+      font-size: .82rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(99,230,190,.7);
+    }
+
+    h1 {
+      max-width: 900px;
+      font-size: clamp(2.7rem, 7vw, 5.5rem);
+      line-height: 1.04;
+      letter-spacing: -.065em;
+      margin-bottom: 25px;
+    }
+
+    h1 .highlight {
+      color: var(--accent);
+    }
+
+    .hero-description {
+      max-width: 690px;
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-bottom: 40px;
+    }
+
+    .hero-note {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    section {
+      padding: 76px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 32px;
+    }
+
+    .section-label {
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: .77rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      margin-bottom: 9px;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      letter-spacing: -.045em;
+      margin-bottom: 12px;
+    }
+
+    .section-description {
+      max-width: 700px;
+      color: var(--muted);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: linear-gradient(145deg, var(--surface-light), var(--surface));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 27px;
+      display: flex;
+      flex-direction: column;
+      min-height: 290px;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99,230,190,.45);
+    }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 23px;
+    }
+
+    .project-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: rgba(99,230,190,.10);
+      color: var(--accent);
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+
+    .project-type {
+      color: var(--muted);
+      font-size: .76rem;
+      border: 1px solid var(--border);
+      padding: 5px 9px;
+      border-radius: 100px;
+    }
+
+    h3 {
+      font-size: 1.32rem;
+      margin-bottom: 9px;
+      letter-spacing: -.025em;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: .94rem;
+      margin-bottom: 19px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      margin-bottom: 22px;
+    }
+
+    .tag {
+      color: #c8d4e7;
+      background: rgba(255,255,255,.045);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 4px 9px;
+      font-size: .75rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      width: fit-content;
+      gap: 8px;
+      align-items: center;
+      color: var(--accent);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 45px;
+      align-items: start;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 17px;
+    }
+
+    .skill-panel {
+      padding: 25px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .skill-panel h3 {
+      margin-bottom: 18px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 9px 12px;
+      background: var(--surface-light);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      font-size: .85rem;
+      color: #dce6f6;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .approach-card {
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .approach-number {
+      color: var(--accent);
+      font-size: .82rem;
+      font-weight: 800;
+      margin-bottom: 13px;
+    }
+
+    .approach-card p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .contact-panel {
+      padding: clamp(27px, 6vw, 55px);
+      border: 1px solid rgba(99,230,190,.23);
+      border-radius: 24px;
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(99,230,190,.09), transparent 55%),
+        var(--surface);
+    }
+
+    .contact-panel p {
+      max-width: 650px;
+      color: var(--muted);
+      margin: 14px 0 25px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 27px 0;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        min-height: 68px;
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: .82rem;
+      }
+
+      .nav-links .optional {
+        display: none;
+      }
+
+      .hero {
+        padding: 80px 0 55px;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .project-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .approach-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        width: min(100% - 28px, var(--max-width));
+      }
+
+      .nav-links {
+        gap: 10px;
+      }
+
+      .nav-links a {
+        font-size: .78rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="#home">Sandro<span>.</span></a>
+
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a class="optional" href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="eyebrow">
+          <span class="status-dot"></span>
+          AI-ASSISTED SOFTWARE DEVELOPMENT
+        </div>
+
+        <h1>
+          I build digital products
+          <span class="highlight">with AI.</span>
+        </h1>
+
+        <p class="hero-description">
+          I'm an AI-Assisted SaaS Developer from Brazil, building web
+          applications, digital products and business solutions with
+          AI-powered development tools.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">
+            Explore my projects <span aria-hidden="true">↗</span>
+          </a>
+          <a class="button" href="https://github.com/sandropqd55464-hub"
+             target="_blank" rel="noopener noreferrer">
+            <span aria-hidden="true">⌘</span> GitHub profile
+          </a>
+        </div>
+
+        <p class="hero-note">
+          Based in Brazil · Open to remote opportunities worldwide
+        </p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Selected work</p>
+          <h2>Projects I've been building</h2>
+          <p class="section-description">
+            A growing portfolio of digital products, web platforms and
+            application ideas developed with AI-assisted workflows.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">O</div>
+              <span class="project-type">Sports Technology</span>
+            </div>
+            <h3>O Olheiro</h3>
+            <p>
+              A sports-tech platform focused on football talent discovery,
+              helping connect player performance and digital analysis.
+            </p>
+            <div class="tags">
+              <span class="tag">Web Platform</span>
+              <span class="tag">Sports Tech</span>
+              <span class="tag">AI-Assisted</span>
+            </div>
+            <a class="project-link" href="https://www.oolheiro.com.br/"
+               target="_blank" rel="noopener noreferrer">
+              Visit project <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">C</div>
+              <span class="project-type">Web Tools</span>
+            </div>
+            <h3>CalcMundi</h3>
+            <p>
+              An online calculator platform designed to make useful
+              calculations accessible through a simple web experience.
+            </p>
+            <div class="tags">
+              <span class="tag">Web Development</span>
+              <span class="tag">Digital Product</span>
+              <span class="tag">SEO Potential</span>
+            </div>
+            <a class="project-link" href="https://www.calcmundi.com.br/"
+               target="_blank" rel="noopener noreferrer">
+              Visit project <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">T</div>
+              <span class="project-type">Digital Entertainment</span>
+            </div>
+            <h3>TocaPlay Livre</h3>
+            <p>
+              A free entertainment platform bringing audio and video
+              content together in an accessible digital experience.
+            </p>
+            <div class="tags">
+              <span class="tag">Media Platform</span>
+              <span class="tag">Web Experience</span>
+              <span class="tag">Digital Product</span>
+            </div>
+            <a class="project-link" href="https://www.tocaplaylivre.com.br/"
+               target="_blank" rel="noopener noreferrer">
+              Visit project <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">A</div>
+              <span class="project-type">Scheduling</span>
+            </div>
+            <h3>TaAgendado Salão</h3>
+            <p>
+              A digital product concept focused on appointment scheduling
+              and organization for beauty salons.
+            </p>
+            <div class="tags">
+              <span class="tag">SaaS Concept</span>
+              <span class="tag">Scheduling</span>
+              <span class="tag">Business Tools</span>
+            </div>
+            <a class="project-link" href="https://www.taagendadosalao.com.br/"
+               target="_blank" rel="noopener noreferrer">
+              Visit project <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">M</div>
+              <span class="project-type">Wellness</span>
+            </div>
+            <h3>Mente Serena</h3>
+            <p>
+              A digital wellness project focused on creating a welcoming
+              online experience around well-being.
+            </p>
+            <div class="tags">
+              <span class="tag">Digital Product</span>
+              <span class="tag">Web Application</span>
+            </div>
+            <a class="project-link" href="https://www.menteserena.com.br/"
+               target="_blank" rel="noopener noreferrer">
+              Visit project <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">About me</p>
+          <h2>Building through AI-assisted development</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>
+              I'm a Brazilian digital product builder focused on creating
+              useful applications and web-based business solutions with
+              AI-assisted development workflows.
+            </p>
+            <p>
+              I use AI coding tools to accelerate implementation, explore
+              product ideas, build interfaces and develop application
+              features. I also test my projects, review results and
+              improve them iteratively.
+            </p>
+            <p>
+              My goal is to keep strengthening my software engineering
+              foundations while building real products that solve
+              practical problems.
+            </p>
+          </div>
+
+          <aside class="skill-panel">
+            <h3>Tools & areas of focus</h3>
+            <div class="skill-list">
+              <span class="skill">AI-Assisted Coding</span>
+              <span class="skill">Claude Code</span>
+              <span class="skill">Replit</span>
+              <span class="skill">VS Code</span>
+              <span class="skill">Web Applications</span>
+              <span class="skill">SaaS Products</span>
+              <span class="skill">Supabase</span>
+              <span class="skill">GitHub</span>
+              <span class="skill">Product Development</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">My approach</p>
+          <h2>From idea to digital product</h2>
+          <p class="section-description">
+            An iterative approach to building, testing and improving
+            software with AI-assisted tools.
+          </p>
+        </div>
+
+        <div class="approach-grid">
+          <article class="approach-card">
+            <div class="approach-number">01 / BUILD</div>
+            <h3>Turn ideas into applications</h3>
+            <p>
+              Translate product requirements into interfaces, features
+              and practical web application experiences.
+            </p>
+          </article>
+
+          <article class="approach-card">
+            <div class="approach-number">02 / TEST</div>
+            <h3>Validate and improve</h3>
+            <p>
+              Test workflows, identify issues and iterate on the
+              application based on observed results.
+            </p>
+          </article>
+
+          <article class="approach-card">
+            <div class="approach-number">03 / EVOLVE</div>
+            <h3>Keep learning</h3>
+            <p>
+              Improve technical foundations, development practices
+              and product quality with every iteration.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <p class="section-label">Let's connect</p>
+          <h2>Have a project in mind?</h2>
+          <p>
+            I'm interested in remote opportunities, collaboration and
+            projects involving AI-assisted development, SaaS products
+            and practical web applications.
+          </p>
+          <a class="button button-primary"
+             href="https://github.com/sandropqd55464-hub"
+             target="_blank" rel="noopener noreferrer">
+            Connect on GitHub <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Sandro · AI-Assisted SaaS Developer</p>
+      <div class="footer-links">
+        <a href="#home">Back to top ↑</a>
+        <a href="https://github.com/sandropqd55464-hub"
+           target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
